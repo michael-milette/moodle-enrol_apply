@@ -86,7 +86,10 @@ $manageurl = new moodle_url('/enrol/apply/manage.php', $manageurlparams);
 
 $PAGE->set_context($context);
 $PAGE->set_url($manageurl);
-$PAGE->set_pagelayout('admin');
+$PAGE->set_pagelayout('report');
+// Set an admin-prefixed page type so Moodle renders the secondary navigation
+// bar and breadcrumb correctly when accessed from site administration.
+$PAGE->set_pagetype('admin-' . $PAGE->pagetype);
 $PAGE->set_heading($pageheading);
 $PAGE->navbar->add(get_string('confirmusers', 'enrol_apply'));
 $PAGE->set_title(get_string('confirmusers', 'enrol_apply'));
