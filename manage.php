@@ -53,7 +53,7 @@ if($id) {
         $context = context::instance_by_id($contexti->id);
         require_capability('enrol/apply:manageapplications', context::instance_by_id($context->id));
         $manageurlparams['userenrol'] = $userenrol;
-        $pageheading = $user->fisrtname." ".$user->lastname;
+        $pageheading = $user->firstname." ".$user->lastname;
     }
 }else{
     //check if he is a choort
