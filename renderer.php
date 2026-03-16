@@ -59,7 +59,7 @@ class enrol_apply_renderer extends plugin_renderer_base {
             echo html_writer::tag('label', get_string('withselectedusers'), array('for' => 'formaction'));
             echo html_writer::select($formactions, 'formaction', '', array('' => 'choosedots'), array('id' => 'formaction'));
             echo html_writer::tag('noscript',
-                html_writer::empty_tag('input', array('type' => 'submit', get_string('submit'))),
+                html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('submit'))),
                 array('style' => 'display: inline;'));
 
             echo html_writer::end_tag('div');
