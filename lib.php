@@ -530,7 +530,7 @@ class enrol_apply_plugin extends enrol_plugin {
         $globaluserstonotify = $this->get_notifyglobal_users();
         
         $globaluserstonotify = array_udiff($globaluserstonotify, $courseuserstonotify, function($usera, $userb) {
-            return $usera->id == $userb->id ? 0 : -1;
+            return $usera->id - $userb->id;
         });
         if (!empty($globaluserstonotify)) {
             $manageurl = new moodle_url('/enrol/apply/manage.php');
