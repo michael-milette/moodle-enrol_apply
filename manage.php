@@ -35,6 +35,8 @@ $userenrolments = optional_param_array('userenrolments', null, PARAM_INT);
 require_login();
 
 $manageurlparams = array();
+$useradm = array();
+
 if($id) {
     $instance = $DB->get_record('enrol', array('id' => $id, 'enrol' => 'apply'), '*', MUST_EXIST);
     require_course_login($instance->courseid);
@@ -61,8 +63,6 @@ if($id) {
                 WHERE mc.userid <>{$USER->id} and mc.cohortid 
                 in (SELECT cohortid FROM {cohort_members} cm WHERE cm.userid ={$USER->id})";
     $cohortsusers = $DB->get_records_sql($sql);
-    
-    $useradm = array();
     
     if($cohortsusers){
         foreach($cohortsusers as $userchort){
