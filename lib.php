@@ -102,7 +102,7 @@ class enrol_apply_plugin extends enrol_plugin {
 
         $allowapply = $this->allow_apply($instance);
         if ($allowapply !== true) {
-            return '<div class="alert alert-error">' . $allowapply . '</div>';
+            return '<div class="alert alert-danger">' . $allowapply . '</div>';
         }
 
         if ($DB->record_exists('user_enrolments', array('userid' => $USER->id, 'enrolid' => $instance->id))) {
@@ -114,7 +114,7 @@ class enrol_apply_plugin extends enrol_plugin {
             $count = $DB->count_records('user_enrolments', array('enrolid' => $instance->id));
             if ($count >= $instance->customint3) {
                 // Bad luck, no more self enrolments here.
-                return '<div class="alert alert-error">'.get_string('maxenrolledreached_left', 'enrol_apply')." (".$count.") ".get_string('maxenrolledreached_right', 'enrol_apply').'</div>';
+                return '<div class="alert alert-danger">'.get_string('maxenrolledreached_left', 'enrol_apply')." (".$count.") ".get_string('maxenrolledreached_right', 'enrol_apply').'</div>';
             }
         }
 
