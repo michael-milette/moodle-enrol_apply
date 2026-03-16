@@ -22,8 +22,6 @@
  * @author     Johannes Burk <johannes.burk@sudile.com>
  */
 
-use mod_forum\local\exporters\group;
-
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/formslib.php');
