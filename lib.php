@@ -687,13 +687,5 @@ class enrol_apply_plugin extends enrol_plugin {
     // End modification
 
 
-    /**
-     * Enrol cron support.
-     * @return void
-     */
-    public function cron() {
-        $trace = new text_progress_trace();
-        $this->process_expirations($trace);
-    }
 
 }
