@@ -54,7 +54,7 @@ $manageurl = new moodle_url('/enrol/apply/info.php', $manageurlparams);
 $PAGE->set_context($context);
 $PAGE->set_url($manageurl);
 $PAGE->set_pagelayout('admin');
-$PAGE->set_heading($pageheading);
+$PAGE->set_heading($COURSE->fullname);
 $PAGE->navbar->add(get_string('submitted_info', 'enrol_apply'));
 $PAGE->set_title(get_string('submitted_info', 'enrol_apply'));
 $PAGE->requires->css('/enrol/apply/style.css');

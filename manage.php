@@ -90,9 +90,23 @@ $PAGE->set_pagelayout('report');
 // Set an admin-prefixed page type so Moodle renders the secondary navigation
 // bar and breadcrumb correctly when accessed from site administration.
 $PAGE->set_pagetype('admin-' . $PAGE->pagetype);
-$PAGE->set_heading($pageheading);
-$PAGE->navbar->add(get_string('confirmusers', 'enrol_apply'));
+$PAGE->set_heading($COURSE->fullname);
 $PAGE->set_title(get_string('confirmusers', 'enrol_apply'));
+
+if ($id) {
+    // Accessed from a course. Build the full breadcrumb manually — Moodle does
+    // not auto-populate the navbar when using the report layout in course context.
+    $PAGE->navbar->add(get_string('mycourses'), new moodle_url('/my/'));
+    $PAGE->navbar->add($course->fullname, new moodle_url('/course/view.php', array('id' => $course->id)));
+    $PAGE->navbar->add(
+        get_string('enrolmentinstances', 'enrol'),
+        new moodle_url('/enrol/instances.php', array('id' => $course->id))
+    );
+    $PAGE->navbar->add(get_string('confirmusers', 'enrol_apply'));
+} else {
+    $PAGE->navbar->add(get_string('confirmusers', 'enrol_apply'));
+}
+
 $PAGE->requires->css('/enrol/apply/style.css');
 
 if ($formaction != null && $userenrolments != null) {

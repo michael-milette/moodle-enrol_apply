@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 class enrol_apply_renderer extends plugin_renderer_base {
     public function manage_page($table, $manageurl, $instance) {
         echo $this->header();
-        echo $this->heading(get_string('confirmusers', 'enrol_apply'));
+        echo $this->heading(get_string('pluginname', 'enrol_apply') . ' - ' . get_string('confirmusers', 'enrol_apply'));
         $this->manage_form($table, $manageurl, $instance);
         echo $this->footer();
     }
@@ -70,8 +70,7 @@ class enrol_apply_renderer extends plugin_renderer_base {
 
     public function info_page($table, $manageurl,$instance) {
         echo $this->header();
-        echo $this->heading(get_string('submitted_info', 'enrol_apply'));
-        echo get_string('submitted_info', 'enrol_apply');
+        echo $this->heading(get_string('pluginname', 'enrol_apply') . ' - ' . get_string('submitted_info', 'enrol_apply'));
         $this->info_form($table, $manageurl,$instance);
         echo $this->footer();
     }
