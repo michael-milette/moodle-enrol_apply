@@ -27,6 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['apply:config'] = '登録申請インスタンスを設定する';
 $string['applydate'] = '登録日';
+$string['status_col'] = 'ステータス';
+$string['status_pending'] = '承認待ち';
+$string['status_waitinglist'] = '順番待ちリスト';
 $string['applymanage'] = '登録申請を管理する';
 $string['apply:manageapplications'] = '登録申請を管理する';
 $string['apply:unenrol'] = 'コースからユーザを登録解除する';

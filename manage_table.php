@@ -113,6 +113,13 @@ class enrol_apply_manage_table extends table_sql {
     }
 
 
+    public function col_enrolstatus($row) {
+        if ($row->enrolstatus == ENROL_APPLY_USER_WAIT) {
+            return get_string('status_waitinglist', 'enrol_apply');
+        }
+        return get_string('status_pending', 'enrol_apply');
+    }
+
     public function col_applydate($row) {
         return userdate($row->applydate, get_string('strftimedate', 'langconfig'));
     }

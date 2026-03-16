@@ -72,6 +72,9 @@ $string['coursename'] = 'Course';
 $string['applyuser'] = 'First name / Last name';
 $string['applyusermail'] = 'Email';
 $string['applydate'] = 'Enrol date';
+$string['status_col'] = 'Status';
+$string['status_pending'] = 'Pending approval';
+$string['status_waitinglist'] = 'Waiting list';
 $string['btnconfirm'] = 'Confirm requests';
 $string['btnwait'] = 'Defer requests';
 $string['btncancel'] = 'Cancel requests';
@@ -157,4 +160,3 @@ $string['processexpirationstask'] = 'Apply enrolment process expirations task';
 $string['messageprovider:expiry_notification'] = 'Apply enrolment expiry notifications';
 
 $string["profileoption"] = "Profile Field to Show in Table";
-

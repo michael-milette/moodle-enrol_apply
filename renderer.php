@@ -28,7 +28,6 @@ class enrol_apply_renderer extends plugin_renderer_base {
     public function manage_page($table, $manageurl, $instance) {
         echo $this->header();
         echo $this->heading(get_string('confirmusers', 'enrol_apply'));
-        echo get_string('confirmusers_desc', 'enrol_apply');
         $this->manage_form($table, $manageurl, $instance);
         echo $this->footer();
     }
@@ -88,6 +87,7 @@ class enrol_apply_renderer extends plugin_renderer_base {
                 'fullname', // Magic happens here: The column heading will automatically be set.
                 'email',
                 'applydate',
+                'enrolstatus',
                 'field',
                 'applycomment');
 
@@ -97,6 +97,7 @@ class enrol_apply_renderer extends plugin_renderer_base {
                 'fullname', // Magic happens here: The column heading will automatically be set due to column name 'fullname'.
                 get_string('email'),
                 get_string('applydate', 'enrol_apply'),
+                get_string('status_col', 'enrol_apply'),
                 $field->name,
                 get_string('applycomment', 'enrol_apply'),
             );
@@ -108,6 +109,7 @@ class enrol_apply_renderer extends plugin_renderer_base {
                 'fullname', // Magic happens here: The column heading will automatically be set.
                 'email',
                 'applydate',
+                'enrolstatus',
                 'applycomment');
 
             $headers = array(
@@ -116,6 +118,7 @@ class enrol_apply_renderer extends plugin_renderer_base {
                 'fullname', // Magic happens here: The column heading will automatically be set due to column name 'fullname'.
                 get_string('email'),
                 get_string('applydate', 'enrol_apply'),
+                get_string('status_col', 'enrol_apply'),
                 get_string('applycomment', 'enrol_apply'),
             );
         }

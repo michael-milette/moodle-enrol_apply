@@ -39,6 +39,9 @@ Si vous avez besoin d\'aide, veuillez contacter {$a->enroller}.';
 
 
 $string['sendexpirynotificationstask'] = 'Tâche d\'envoie des notifications du seuil de notification : Confirmation d\'inscription';
+$string['status_col'] = 'Statut';
+$string['status_pending'] = 'En attente d\'approbation';
+$string['status_waitinglist'] = 'Liste d\'attente';
 
 $string['messageprovider:expiry_notification'] = 'Confirmation d\'inscription : Seuil de notification';
 
