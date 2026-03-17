@@ -102,7 +102,8 @@ class enrol_apply_manage_table extends table_sql {
         // The $row variable contains all user fields, see sql query.
         global $OUTPUT;
         $col = $OUTPUT->user_picture($row, array('popup' => true));
-        $col .= fullname($row);
+        // User full name with link to profile.
+        $col .= html_writer::link(new moodle_url('/user/view.php', array('id' => $row->userid)), fullname($row));
         return $col;
     }
 
