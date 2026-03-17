@@ -144,6 +144,7 @@ class enrol_apply_edit_form extends moodleform {
         //$title_customtext2 = str_replace("{replace_title}",$instance->customtext2,get_string('custom_label', 'enrol_apply'));
         $title_customtext2 = get_string('custom_label', 'enrol_apply');
         $mform->addElement('text', 'customtext2', $title_customtext2);
+        $mform->setType('customtext2', PARAM_TEXT);
         $mform->setDefault('customtext2', "Comment");
 
         $options = array(1 => get_string('yes'),
