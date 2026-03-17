@@ -78,48 +78,52 @@ class enrol_apply_renderer extends plugin_renderer_base {
     public function manage_table($table, $instance) {
         global $DB;
         $extra = get_config('enrol_apply', 'profileoption');
+        // Hide the course column when viewing applications for a single course.
+        $showcourse = empty($instance->courseid);
         if($extra) {
             $field = $DB->get_record("user_info_field", array("id" => $extra));
-            $columns = array(
-                'checkboxcolumn',
-                'course',
+            $columns = array('checkboxcolumn');
+            $headers = array(html_writer::checkbox('toggleall', 'toggleall', false, '', array('id' => 'toggleall')));
+            if ($showcourse) {
+                $columns[] = 'course';
+                $headers[] = get_string('course');
+            }
+            $columns = array_merge($columns, array(
                 'fullname', // Magic happens here: The column heading will automatically be set.
                 'email',
                 'applydate',
                 'enrolstatus',
                 'field',
-                'applycomment');
-
-            $headers = array(
-                html_writer::checkbox('toggleall', 'toggleall', false, '', array('id' => 'toggleall')),
-                get_string('course'),
+                'applycomment'));
+            $headers = array_merge($headers, array(
                 'fullname', // Magic happens here: The column heading will automatically be set due to column name 'fullname'.
                 get_string('email'),
                 get_string('applydate', 'enrol_apply'),
                 get_string('status_col', 'enrol_apply'),
                 $field->name,
                 get_string('applycomment', 'enrol_apply'),
-            );
+            ));
         }
         else{
-            $columns = array(
-                'checkboxcolumn',
-                'course',
+            $columns = array('checkboxcolumn');
+            $headers = array(html_writer::checkbox('toggleall', 'toggleall', false, '', array('id' => 'toggleall')));
+            if ($showcourse) {
+                $columns[] = 'course';
+                $headers[] = get_string('course');
+            }
+            $columns = array_merge($columns, array(
                 'fullname', // Magic happens here: The column heading will automatically be set.
                 'email',
                 'applydate',
                 'enrolstatus',
-                'applycomment');
-
-            $headers = array(
-                html_writer::checkbox('toggleall', 'toggleall', false, '', array('id' => 'toggleall')),
-                get_string('course'),
+                'applycomment'));
+            $headers = array_merge($headers, array(
                 'fullname', // Magic happens here: The column heading will automatically be set due to column name 'fullname'.
                 get_string('email'),
                 get_string('applydate', 'enrol_apply'),
                 get_string('status_col', 'enrol_apply'),
                 get_string('applycomment', 'enrol_apply'),
-            );
+            ));
         }
         $table->define_columns($columns);
         $table->define_headers($headers);
